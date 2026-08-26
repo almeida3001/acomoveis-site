@@ -44,6 +44,20 @@
   });
   if (mainImg) mainImg.style.transition = "opacity .35s cubic-bezier(.165,.84,.44,1)";
 
+  // ---------- Formulário de orçamento -> WhatsApp ----------
+  var form = document.getElementById("orcamento-form");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var nome = form.nome.value.trim();
+      var tel = form.telefone.value.trim();
+      var seg = form.segmento.value;
+      var msg = form.mensagem.value.trim();
+      var text = "Ola, gostaria de solicitar um orcamento.\nNome: " + nome + "\nTelefone: " + tel + "\nSegmento: " + seg + (msg ? "\nMensagem: " + msg : "");
+      window.open("https://api.whatsapp.com/send?phone=5521983180196&text=" + encodeURIComponent(text), "_blank");
+    });
+  }
+
   // ---------- Contadores ----------
   function animateCounters() {
     document.querySelectorAll("[data-count]").forEach(function (el) {

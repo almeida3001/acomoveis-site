@@ -596,16 +596,17 @@ input:focus, textarea:focus { outline: 2px solid var(--red); outline-offset: 1px
   flex-wrap: wrap;
 }
 .mini-shield {
-  width: 74px;
-  height: 60px;
+  width: 150px;
+  height: 92px;
   background: var(--red);
-  clip-path: polygon(0 0, 100% 0, 100% 66%, 50% 100%, 0 66%);
+  clip-path: polygon(0 0, 100% 0, 100% 72%, 50% 100%, 0 72%);
   display: flex;
   align-items: flex-start;
   justify-content: center;
   flex: none;
+  padding: 18px 16px 0;
 }
-.mini-shield span { font-family: var(--font-display); color: #fff; font-size: 30px; margin-top: 6px; }
+.mini-shield img { width: 100%; height: auto; display: block; }
 .newsletter { flex: 1 1 320px; }
 .newsletter strong {
   font-family: var(--font-display);

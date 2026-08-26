@@ -132,6 +132,14 @@
     });
   }
 
+  // ---------- Robustez: aba oculta no load pausa o rAF e pode prender tweens ----------
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden) { ScrollTrigger.refresh(); }
+  });
+  window.addEventListener("load", function () {
+    setTimeout(function () { ScrollTrigger.refresh(); }, 400);
+  });
+
   // ---------- Banda escura: leve parallax na foto ----------
   document.querySelectorAll(".band-dark .bg img").forEach(function (img) {
     gsap.fromTo(img, { yPercent: -6 }, {

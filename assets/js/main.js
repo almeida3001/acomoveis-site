@@ -94,12 +94,17 @@
 
   // ---------- Hero intro ----------
   var heroEls = document.querySelectorAll(".hero-panel .eyebrow, .hero-panel h1, .hero-panel p, .hero-panel .hero-ctas, .page-hero .eyebrow, .page-hero h1, .page-hero .lead");
-  if (heroEls.length) {
-    gsap.from(heroEls, { y: 40, opacity: 0, duration: 1, stagger: 0.1, ease: "power3.out", delay: 0.1 });
-  }
   var heroPhoto = document.querySelector(".hero-photo img");
-  if (heroPhoto) {
-    gsap.from(heroPhoto, { scale: 1.08, duration: 1.6, ease: "power2.out" });
+  if (document.hidden) {
+    if (heroEls.length) gsap.set(heroEls, { clearProps: "all" });
+    if (heroPhoto) gsap.set(heroPhoto, { clearProps: "all" });
+  } else {
+    if (heroEls.length) {
+      gsap.from(heroEls, { y: 40, opacity: 0, duration: 1, stagger: 0.1, ease: "power3.out", delay: 0.1 });
+    }
+    if (heroPhoto) {
+      gsap.from(heroPhoto, { scale: 1.08, duration: 1.6, ease: "power2.out" });
+    }
   }
 
   // ---------- Reveals on scroll ----------

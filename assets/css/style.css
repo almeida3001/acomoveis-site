@@ -359,9 +359,9 @@ body.scrolled .badge-shield { transform: translateX(-50%) scale(.72); }
 .stack-photos img,
 .stack-photos video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .stack-photos .ph-a img.xfade { opacity: 0; transition: opacity .35s var(--ease-fancy); }
-.stack-photos .ph-v { width: 47%; height: 100%; top: 0; left: 0; transform: rotate(-3deg); z-index: 2; background: var(--ink); }
-.stack-photos .ph-a { width: 57%; height: 62%; top: 6%; right: 0; transform: rotate(3deg); z-index: 3; }
-.stack-photos .ph-b { width: 42%; height: 32%; bottom: 2%; right: 4%; transform: rotate(-2deg); z-index: 1; }
+.stack-photos .ph-a { width: 68%; height: 74%; top: 0; left: 0; transform: rotate(-4deg); z-index: 3; }
+.stack-photos .ph-b { width: 58%; height: 62%; top: 22%; right: 0; transform: rotate(3deg); z-index: 2; }
+.stack-photos .ph-c { width: 46%; height: 44%; bottom: 0; left: 14%; transform: rotate(-2deg); z-index: 1; }
 
 .cat-list { border-top: 1px solid var(--hairline); }
 .cat-item {
@@ -469,6 +469,20 @@ body.scrolled .badge-shield { transform: translateX(-50%) scale(.72); }
 }
 .about-split .media { border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 24px 50px rgba(23,23,23,.18); }
 .about-split .media img { width: 100%; height: 100%; object-fit: cover; }
+.about-split .media-video {
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+.about-split .media-video video {
+  width: auto;
+  max-width: 100%;
+  max-height: 620px;
+  border-radius: 10px;
+  display: block;
+}
 .about-split h2 { margin: 14px 0 18px; }
 .counters { display: flex; gap: clamp(28px, 4vw, 56px); margin: 30px 0 26px; flex-wrap: wrap; }
 .counters .num {
@@ -699,10 +713,8 @@ html.no-js .reveal, body.no-anim .reveal { opacity: 1; transform: none; }
   .hero-photo { min-height: 340px; }
   .hero-panel-inner { padding-top: 130px; }
   .cat-explorer .container, .about-split .container, .contact-grid, .sw-home .container { grid-template-columns: 1fr; }
-  .stack-photos { height: 420px; max-width: 520px; }
-  .stack-photos .ph-v { width: 52%; }
-  .stack-photos .ph-a { width: 52%; height: 56%; }
-  .stack-photos .ph-b { display: none; }
+  .stack-photos { height: 340px; max-width: 520px; }
+  .about-split .media-video video { max-height: 460px; }
   .grid-3, .contact-cards { grid-template-columns: 1fr 1fr; }
   .feature-row { grid-template-columns: 1fr; }
   .footer-cols { grid-template-columns: 1fr 1fr; }

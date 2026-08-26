@@ -217,7 +217,7 @@ body.scrolled .badge-shield { transform: translateX(-50%) scale(.72); }
   inset: 0;
   background: var(--near-black);
   background-image: var(--topo);
-  background-size: 560px;
+  background-size: 340px;
   color: var(--cream);
   z-index: 90;
   display: flex;
@@ -246,7 +246,7 @@ body.scrolled .badge-shield { transform: translateX(-50%) scale(.72); }
   font-size: clamp(2.2rem, 5vw, 4rem);
   text-transform: uppercase;
   line-height: 1.05;
-  color: rgba(237,235,227,.4);
+  color: var(--cream);
   transition: color .25s ease, padding-left .25s ease;
 }
 .meganav a:hover, .meganav a.active { color: var(--cream); padding-left: 14px; }
@@ -986,3 +986,29 @@ html.no-js .reveal, body.no-anim .reveal { opacity: 1; transform: none; }
   .cat-video .container { grid-template-columns: 1fr; }
   .cat-video .media-video video { max-height: 440px; }
 }
+
+/* ---------- Meganav: legibilidade ---------- */
+.meganav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(23,23,23,.96) 0%, rgba(23,23,23,.88) 46%, rgba(23,23,23,.62) 100%);
+  pointer-events: none;
+}
+.meganav .container { position: relative; z-index: 1; }
+.meganav .close { z-index: 2; }
+.meganav ul { gap: 2px; }
+.meganav a { opacity: .78; transition: opacity .2s var(--ease-default), color .2s var(--ease-default), transform .3s var(--ease-fancy); display: inline-block; }
+.meganav a:hover, .meganav a.active { opacity: 1; color: #fff; transform: translateX(10px); }
+.meganav a.active { position: relative; }
+.meganav a.active::before {
+  content: "";
+  position: absolute;
+  left: -26px;
+  top: 50%;
+  width: 16px;
+  height: 3px;
+  background: var(--red);
+  transform: translateY(-50%);
+}
+.meganav .sub { position: relative; z-index: 1; margin-top: 30px; opacity: .6; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }

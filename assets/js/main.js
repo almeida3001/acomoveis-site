@@ -26,23 +26,43 @@
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") setMenu(false); });
 
   // ---------- Lista interativa de categorias ----------
+  // Crossfade so na foto principal: uma nova <img> entra por cima e a antiga
+  // sai depois. As figuras do stack nunca mudam de opacidade, entao a coluna
+  // esquerda nunca some. Sem hover (touch), o stack fica fixo.
   var catItems = document.querySelectorAll(".cat-item");
-  var mainImg = document.getElementById("cat-img-a");
-  catItems.forEach(function (item) {
-    item.addEventListener("mouseenter", function () {
-      catItems.forEach(function (i) { i.classList.remove("active"); });
-      item.classList.add("active");
-      var src = item.getAttribute("data-img");
-      if (mainImg && src && mainImg.getAttribute("src") !== src) {
-        mainImg.style.opacity = 0;
-        setTimeout(function () {
-          mainImg.setAttribute("src", src);
-          mainImg.style.opacity = 1;
-        }, 180);
-      }
+  var phA = document.querySelector(".stack-photos .ph-a");
+  var canHover = window.matchMedia && window.matchMedia("(hover: hover)").matches;
+  if (phA && canHover) {
+    var baseImg = phA.querySelector("img");
+    var currentSrc = baseImg ? baseImg.getAttribute("src") : "";
+    catItems.forEach(function (item) {
+      item.addEventListener("mouseenter", function () {
+        catItems.forEach(function (i) { i.classList.remove("active"); });
+        item.classList.add("active");
+        var src = item.getAttribute("data-img");
+        if (!src || src === currentSrc) return;
+        currentSrc = src;
+        var next = new Image();
+        next.alt = "Categoria de produto Açomóveis";
+        next.className = "xfade";
+        next.onload = function () {
+          if (currentSrc !== src) return;
+          var prev = Array.prototype.slice.call(phA.querySelectorAll("img"));
+          phA.appendChild(next);
+          void next.offsetWidth;
+          next.style.opacity = 1;
+          setTimeout(function () {
+            prev.forEach(function (p) {
+              if (p !== next && p.parentNode) p.parentNode.removeChild(p);
+            });
+            next.classList.remove("xfade");
+            next.style.opacity = "";
+          }, 450);
+        };
+        next.src = src;
+      });
     });
-  });
-  if (mainImg) mainImg.style.transition = "opacity .35s cubic-bezier(.165,.84,.44,1)";
+  }
 
   // ---------- Formulário de orçamento -> WhatsApp ----------
   var form = document.getElementById("orcamento-form");
@@ -83,7 +103,9 @@
   }
   animateCounters();
 
-  if (noAnim) {
+  // Aba oculta no load: rAF pausado deixaria tweens de entrada presos em
+  // opacity 0 (secoes em branco). Nesse caso, pula as animacoes de entrada.
+  if (noAnim || document.hidden) {
     document.querySelectorAll(".reveal").forEach(function (el) {
       el.style.opacity = 1; el.style.transform = "none";
     });
@@ -93,7 +115,7 @@
   gsap.registerPlugin(ScrollTrigger);
 
   // ---------- Hero intro ----------
-  var heroEls = document.querySelectorAll(".hero-panel .eyebrow, .hero-panel h1, .hero-panel p, .hero-panel .hero-ctas, .page-hero .eyebrow, .page-hero h1, .page-hero .lead");
+  var heroEls = document.querySelectorAll(".hero-panel .hero-logo, .hero-panel .eyebrow, .hero-panel h1, .hero-panel p, .hero-panel .hero-ctas, .page-hero .eyebrow, .page-hero h1, .page-hero .lead, .page-hero .hero-ctas");
   var heroPhoto = document.querySelector(".hero-photo img");
   if (document.hidden) {
     if (heroEls.length) gsap.set(heroEls, { clearProps: "all" });
@@ -124,11 +146,15 @@
   });
 
   // ---------- Fotos empilhadas entram ----------
+  // once + clearProps: um ScrollTrigger.refresh (troca de aba etc.) nao pode
+  // devolver as figuras para opacity 0.
   var stack = document.querySelector(".stack-photos");
-  if (stack) {
-    gsap.from(stack.querySelectorAll("figure"), {
+  if (stack && !document.hidden) {
+    var figs = stack.querySelectorAll("figure");
+    gsap.from(figs, {
       y: 60, opacity: 0, duration: 1, stagger: 0.15, ease: "power3.out",
-      scrollTrigger: { trigger: stack, start: "top 80%" }
+      scrollTrigger: { trigger: stack, start: "top 80%", once: true },
+      onComplete: function () { gsap.set(figs, { clearProps: "opacity,transform" }); }
     });
   }
 

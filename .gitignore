@@ -1,3 +1,5 @@
 _scrape/
 .vercel/
 .DS_Store
+assets/img/insta/
+.claude/

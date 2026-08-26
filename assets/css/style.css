@@ -901,7 +901,7 @@ html.no-js .reveal, body.no-anim .reveal { opacity: 1; transform: none; }
   margin-bottom: clamp(46px, 6vw, 84px);
 }
 .blog-index .ph-cover { border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 24px 50px rgba(23,23,23,.18); }
-.blog-index .ph-cover img { width: 100%; aspect-ratio: 5 / 4; object-fit: cover; }
+.blog-index .ph-cover img { width: 100%; height: auto; aspect-ratio: 5 / 4; object-fit: cover; }
 .blog-index .ph-body { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
 .blog-index .ph-body p { opacity: .78; max-width: 46ch; }
 
@@ -911,7 +911,7 @@ html.no-js .reveal, body.no-anim .reveal { opacity: 1; transform: none; }
   gap: clamp(22px, 2.4vw, 34px);
 }
 .pc-cover { overflow: hidden; }
-.pc-cover img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; transition: transform .6s var(--ease-fancy); }
+.pc-cover img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; transition: transform .6s var(--ease-fancy); }
 .post-card:hover .pc-cover img { transform: scale(1.05); }
 .pc-body { padding: 20px 22px 26px; display: flex; flex-direction: column; gap: 9px; }
 .pc-meta {
@@ -928,7 +928,7 @@ html.no-js .reveal, body.no-anim .reveal { opacity: 1; transform: none; }
 .post-head .lead { margin-top: 16px; opacity: .82; }
 .post-head .post-meta { display: block; margin-top: 18px; font-size: 12px; letter-spacing: .06em; opacity: .65; text-transform: none; }
 .post-cover { margin-top: clamp(-40px, -3vw, -24px); position: relative; z-index: 2; }
-.post-cover img { width: 100%; border-radius: var(--radius-lg); box-shadow: 0 28px 56px rgba(23,23,23,.2); aspect-ratio: 16 / 9; object-fit: cover; }
+.post-cover img { width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: 0 28px 56px rgba(23,23,23,.2); aspect-ratio: 16 / 9; object-fit: cover; }
 .post-body { max-width: 74ch; padding: clamp(40px, 5vw, 70px) 0 clamp(30px, 4vw, 54px); }
 .post-body p { margin-bottom: 1.35em; font-size: clamp(16px, 1.15vw, 17.5px); line-height: 1.75; }
 .post-cta {

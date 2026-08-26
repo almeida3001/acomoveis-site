@@ -1012,3 +1012,8 @@ html.no-js .reveal, body.no-anim .reveal { opacity: 1; transform: none; }
   transform: translateY(-50%);
 }
 .meganav .sub { position: relative; z-index: 1; margin-top: 30px; opacity: .6; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }
+
+/* Meganav: caber com mais itens sem cortar o topo */
+.meganav { overflow-y: auto; padding: clamp(70px, 10vh, 120px) 0 clamp(40px, 6vh, 70px); }
+.meganav a { font-size: clamp(1.7rem, 3.6vw, 3rem); }
+@media(max-height:760px){ .meganav a { font-size: clamp(1.4rem, 3vw, 2.2rem); } }

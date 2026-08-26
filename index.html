@@ -13,205 +13,219 @@
 </head>
 <body>
 
-<header class="site-header">
+<!-- HEADER 3 CAMADAS -->
+<div class="utilbar">
   <div class="container">
-    <a href="index.html" class="logo">
-      <img class="logo-light" src="assets/img/logo-light.png" alt="Açomóveis">
-      <img class="logo-dark" src="assets/img/logo-dark.png" alt="Açomóveis">
+    <span class="pill">Frete para todo o Brasil</span>
+    <span class="msg">Projetos sob medida direto da fábrica &rarr;</span>
+  </div>
+</div>
+<nav class="catbar" aria-label="Categorias">
+  <div class="container">
+    <a href="produtos.html">Gôndolas</a>
+    <a href="produtos.html#checkouts">Checkouts</a>
+    <a href="produtos.html#expositores">Expositores</a>
+    <a href="produtos.html#steelwood">Steel Wood</a>
+    <a href="produtos.html#armazenagem">Armazenagem</a>
+    <a href="contato.html">Contato</a>
+  </div>
+</nav>
+<header class="mainbar">
+  <div class="container">
+    <button class="menu-toggle" aria-label="Abrir menu">
+      <span class="lines"><span></span><span></span><span></span></span>
+      Menu
+    </button>
+    <a href="index.html" class="badge-shield" aria-label="Açomóveis">
+      <span>A&Ccedil;OM&Oacute;VEIS</span>
+      <small>Desde 1984</small>
     </a>
-    <nav class="nav">
-      <a href="index.html" class="active">Início</a>
-      <a href="produtos.html">Produtos</a>
-      <a href="segmentos.html">Segmentos</a>
-      <a href="empresa.html">Empresa</a>
-      <a href="contato.html">Contato</a>
-      <a href="contato.html" class="btn btn-red">Solicitar Orçamento</a>
-    </nav>
-    <button class="burger" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    <div class="icons">
+      <a href="produtos.html" aria-label="Buscar produtos"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg></a>
+      <a href="https://api.whatsapp.com/send?phone=5521983180196" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.6.8 5 2.2 7L4.5 28l6.2-1.6c1.9 1 4 1.6 5.3 1.6 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-1.9 0-3.7-.5-5.2-1.5l-.4-.2-3.7 1 1-3.6-.2-.4C6.5 18.8 6 17 6 15 6 9.5 10.5 5 16 5s10 4.5 10 10-4.5 10-10 10zm5.5-7.5c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6l-.9-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.4z"/></svg></a>
+    </div>
   </div>
 </header>
-<nav class="mobile-nav">
-  <a href="index.html">Início</a>
-  <a href="produtos.html">Produtos</a>
-  <a href="segmentos.html">Segmentos</a>
-  <a href="empresa.html">Empresa</a>
-  <a href="contato.html">Contato</a>
-</nav>
-
-<section class="hero">
-  <div class="hero-media"><img src="assets/img/mercado.jpg" alt="Loja equipada com gôndolas de aço Açomóveis"></div>
+<div class="meganav">
+  <button class="close" aria-label="Fechar menu">Fechar &times;</button>
   <div class="container">
-    <span class="eyebrow on-dark">Indústria de expositores em aço desde a fundação</span>
-    <h1 class="h-display">Sua loja pronta para vender mais</h1>
-    <p class="lead on-dark">Gôndolas, expositores e checkouts 100% em aço, projetados e fabricados pela Açomóveis para todos os segmentos do varejo brasileiro.</p>
-    <div class="hero-ctas">
-      <a href="contato.html" class="btn btn-red">Solicitar Orçamento</a>
-      <a href="produtos.html" class="btn btn-ghost-light">Ver Produtos</a>
-    </div>
-    <div class="hero-meta">
-      <div><div class="num" data-count="40" data-suffix="+">0</div><div class="lbl">Anos de experiência</div></div>
-      <div><div class="num" data-count="10" data-suffix="K+">0</div><div class="lbl">Clientes atendidos</div></div>
-      <div><div class="num" data-count="5" data-suffix="mil+">0</div><div class="lbl">Produtos disponíveis</div></div>
-    </div>
-  </div>
-</section>
-
-<div class="marquee">
-  <div class="marquee-track">
-    <span>Supermercado<i>/</i></span><span>Pet Shop<i>/</i></span><span>Farmácia<i>/</i></span><span>Papelaria<i>/</i></span><span>Magazine<i>/</i></span><span>Eletro<i>/</i></span><span>Home Center<i>/</i></span><span>Bazar<i>/</i></span><span>Festas<i>/</i></span><span>Aviamento<i>/</i></span>
+    <ul>
+      <li><a href="index.html" class="active">In&iacute;cio</a></li>
+      <li><a href="produtos.html">Produtos</a></li>
+      <li><a href="segmentos.html">Segmentos</a></li>
+      <li><a href="empresa.html">Empresa</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+    <p class="sub">F&aacute;brica pr&oacute;pria em Duque de Caxias, RJ. Escrit&oacute;rio em S&atilde;o Paulo, SP.</p>
   </div>
 </div>
 
-<section class="sw-band" id="steelwood-home">
-  <div class="bg"><img src="assets/img/sw-1.jpg" alt="Linha Steel Wood: aço e madeira"></div>
+<!-- HERO SPLIT -->
+<section class="hero-split">
+  <div class="hero-panel">
+    <div class="hero-panel-inner">
+      <span class="eyebrow">Direto da f&aacute;brica. Rio de Janeiro e S&atilde;o Paulo.</span>
+      <h1>Sua loja pronta para vender mais</h1>
+      <p>G&ocirc;ndolas, expositores e checkouts 100% em a&ccedil;o, projetados e fabricados pela A&ccedil;om&oacute;veis para todos os segmentos do varejo brasileiro.</p>
+      <div class="hero-ctas">
+        <a href="contato.html" class="btn btn-red">Solicitar Or&ccedil;amento</a>
+        <a href="produtos.html" class="btn btn-ghost-light">Ver Produtos</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <img src="assets/img/hero-loja.jpg" alt="Interior de loja equipada com gôndolas de aço">
+  </div>
+</section>
+
+<!-- LISTA INTERATIVA DE CATEGORIAS -->
+<section class="section cat-explorer">
   <div class="container">
+    <div class="stack-photos">
+      <figure class="ph-a"><img id="cat-img-a" src="assets/img/Gondolas-de-Bazar-e-Utilidades-2.jpg" alt="Categoria de produto Açomóveis"></figure>
+      <figure class="ph-b"><img id="cat-img-b" src="assets/img/checkout-novoo.jpg" alt="Checkout de aço"></figure>
+      <figure class="ph-c"><img id="cat-img-c" src="assets/img/sw-1.jpg" alt="Linha Steel Wood"></figure>
+    </div>
+    <div class="cat-list">
+      <a class="cat-item active" href="produtos.html" data-img="assets/img/Gondolas-de-Bazar-e-Utilidades-2.jpg">
+        <span class="eyebrow">Centro e parede</span>
+        <h3>G&ocirc;ndolas <span class="arrow">&rarr;</span></h3>
+      </a>
+      <a class="cat-item" href="produtos.html#checkouts" data-img="assets/img/checkout-novoo.jpg">
+        <span class="eyebrow">Caixas que agilizam</span>
+        <h3>Checkouts <span class="arrow">&rarr;</span></h3>
+      </a>
+      <a class="cat-item" href="produtos.html#steelwood" data-img="assets/img/sw-1.jpg">
+        <span class="eyebrow">A&ccedil;o e madeira, linha premium</span>
+        <h3>Steel Wood <span class="arrow">&rarr;</span></h3>
+      </a>
+      <a class="cat-item" href="produtos.html#expositores" data-img="assets/img/Display-pdv-4.jpg">
+        <span class="eyebrow">Sob medida</span>
+        <h3>Expositores <span class="arrow">&rarr;</span></h3>
+      </a>
+      <a class="cat-item" href="produtos.html#armazenagem" data-img="assets/img/Porta-Pallet-Estantes-Mezaninos-Divisorias-Aco-Moveis-1.jpg">
+        <span class="eyebrow">Porta-pallets e mezaninos</span>
+        <h3>Armazenagem <span class="arrow">&rarr;</span></h3>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- BANDA STEEL WOOD -->
+<section class="band-dark" id="steelwood-home">
+  <div class="bg"><img src="assets/img/sw-3.jpg" alt="Ambiente de loja com linha Steel Wood"></div>
+  <div class="container reveal">
     <span class="eyebrow on-dark">Linha Premium</span>
-    <h2 class="h1">Steel Wood: aço e madeira na mesma peça</h2>
-    <p class="lead on-dark">A linha mais desejada da Açomóveis combina a resistência do aço com o acabamento amadeirado, criando ambientes sofisticados para lojas que querem se destacar.</p>
-    <div class="hero-ctas" style="margin-top:28px">
-      <a href="produtos.html#steelwood" class="btn btn-red">Conhecer a Linha Steel Wood</a>
-    </div>
-    <div class="sw-thumbs">
-      <img src="assets/img/sw-2.jpg" alt="Detalhe de prateleira Steel Wood">
-      <img src="assets/img/sw-3.jpg" alt="Ambiente de loja com linha Steel Wood">
-    </div>
+    <h2 class="h1">Steel Wood. A&ccedil;o e madeira na mesma pe&ccedil;a.</h2>
+    <p>A linha mais desejada da A&ccedil;om&oacute;veis combina a resist&ecirc;ncia do a&ccedil;o com o acabamento amadeirado, criando ambientes sofisticados para lojas que querem se destacar.</p>
+    <a href="produtos.html#steelwood" class="btn btn-red">Conhecer a Linha Steel Wood</a>
   </div>
 </section>
 
-<section class="section" id="quem-somos">
+<!-- SEGMENTOS BRAND LIST -->
+<section class="section seg-brandlist">
   <div class="container">
-    <div class="split">
-      <div class="media reveal-img"><img src="assets/img/Aco-moveis-Fabricacao-e-projecao-de-gondolas-e-expositores-de-aco.jpg" alt="Fabricação de gôndolas e expositores de aço"></div>
-      <div class="content">
-        <span class="eyebrow">Quem Somos</span>
-        <h2 class="h2">Fabricação própria, do projeto à montagem</h2>
-        <p class="lead">Na Açomóveis, simplificamos tudo para você. Somos especializados na fabricação e projeção de gôndolas e expositores de aço; do design criativo à produção qualificada, instalação e inspeção de qualidade, tudo acontece dentro da nossa fábrica em Duque de Caxias, RJ.</p>
-        <a href="empresa.html" class="btn btn-ghost">Conhecer a Empresa</a>
+    <span class="eyebrow">Segmentos</span>
+    <h2 class="h2">Presentes em todo o varejo brasileiro</h2>
+    <div class="seg-rows">
+      <div class="seg-row reveal">
+        <a href="segmentos.html">Supermercado</a>
+        <a href="segmentos.html">Pet Shop</a>
+        <a href="segmentos.html">Farm&aacute;cia</a>
+        <div class="seg-photo"><img src="assets/img/Supermercado-Aco-Moveis-21.jpg" alt="Expositor de bebidas em supermercado"></div>
+      </div>
+      <div class="seg-row reveal">
+        <div class="seg-photo"><img src="assets/img/lojapetshop1.jpg" alt="Loja de pet shop com expositores de aço"></div>
+        <a href="segmentos.html">Papelaria</a>
+        <a href="segmentos.html">Magazine</a>
+        <a href="segmentos.html">Eletro</a>
+      </div>
+      <div class="seg-row reveal">
+        <a href="segmentos.html">Home Center</a>
+        <a href="segmentos.html">Festas</a>
+        <div class="seg-photo"><img src="assets/img/balcao-de-cafe-1.jpg" alt="Balcão de cafeteria"></div>
+        <a href="segmentos.html">Caf&eacute;</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section section-off" id="segmentos">
+<!-- QUEM SOMOS -->
+<section class="section section-off about-split" id="quem-somos">
   <div class="container">
-    <div class="section-head">
-      <div>
-        <span class="eyebrow">Segmentos</span>
-        <h2 class="h2">Presentes em todo o varejo brasileiro</h2>
+    <div class="media reveal"><img src="assets/img/Porta-Pallet-Estantes-Mezaninos-Divisorias-Aco-Moveis-1.jpg" alt="Estruturas de aço fabricadas pela Açomóveis"></div>
+    <div class="content">
+      <span class="eyebrow">Quem Somos</span>
+      <h2 class="h2">Fabrica&ccedil;&atilde;o pr&oacute;pria, do projeto &agrave; montagem</h2>
+      <p class="lead">Na A&ccedil;om&oacute;veis, simplificamos tudo para voc&ecirc;. Somos especializados na fabrica&ccedil;&atilde;o e proje&ccedil;&atilde;o de g&ocirc;ndolas e expositores de a&ccedil;o; do design criativo &agrave; produ&ccedil;&atilde;o qualificada, instala&ccedil;&atilde;o e inspe&ccedil;&atilde;o de qualidade, tudo acontece dentro da nossa f&aacute;brica em Duque de Caxias, RJ.</p>
+      <div class="counters">
+        <div><div class="num" data-count="40" data-suffix="+">0</div><div class="lbl">Anos de experi&ecirc;ncia</div></div>
+        <div><div class="num" data-count="10" data-suffix="K+">0</div><div class="lbl">Clientes atendidos</div></div>
+        <div><div class="num" data-count="5" data-suffix="mil+">0</div><div class="lbl">Produtos dispon&iacute;veis</div></div>
       </div>
-      <a href="segmentos.html" class="btn btn-ghost">Ver Todos os Segmentos</a>
-    </div>
-    <div class="grid grid-4" data-stagger>
-      <a href="segmentos.html" class="card"><img src="assets/img/gondolas-de-supermercado.jpg" alt="Gôndolas para supermercado"><div class="card-body"><h3 class="h3">Supermercado</h3></div></a>
-      <a href="segmentos.html" class="card"><img src="assets/img/lojapetshop1.jpg" alt="Expositores para pet shop"><div class="card-body"><h3 class="h3">Pet Shop</h3></div></a>
-      <a href="segmentos.html" class="card"><img src="assets/img/Expositores-de-Papelaria-e-Brinquedo-2.jpg" alt="Expositores para papelaria"><div class="card-body"><h3 class="h3">Papelaria</h3></div></a>
-      <a href="segmentos.html" class="card"><img src="assets/img/magazine6.jpg" alt="Expositores para magazine"><div class="card-body"><h3 class="h3">Magazine</h3></div></a>
-      <a href="segmentos.html" class="card"><img src="assets/img/eletro2.jpg" alt="Expositores para eletro"><div class="card-body"><h3 class="h3">Eletro</h3></div></a>
-      <a href="segmentos.html" class="card"><img src="assets/img/Loja-Home-Center-2.jpg" alt="Expositores para home center"><div class="card-body"><h3 class="h3">Home Center</h3></div></a>
-      <a href="segmentos.html" class="card"><img src="assets/img/festas.jpg" alt="Expositores para lojas de festas"><div class="card-body"><h3 class="h3">Festas</h3></div></a>
-      <a href="segmentos.html" class="card"><img src="assets/img/balcao-de-cafe-1.jpg" alt="Balcão para cafeteria"><div class="card-body"><h3 class="h3">Café</h3></div></a>
+      <a href="empresa.html" class="btn btn-ghost">Conhecer a Empresa</a>
+      <div class="selos">
+        <img src="assets/img/iso-9001.webp" alt="Certificação ISO 9001">
+        <img src="assets/img/bndes.webp" alt="Credenciada BNDES">
+        <img src="assets/img/proger.webp" alt="Credenciada PROGER">
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <span class="eyebrow">Produtos</span>
-        <h2 class="h2">O que fabricamos para a sua loja</h2>
-      </div>
-      <a href="produtos.html" class="btn btn-ghost">Catálogo Completo</a>
-    </div>
-    <div class="grid grid-3" data-stagger>
-      <a href="produtos.html" class="card wide"><img src="assets/img/Gondolas-de-Bazar-e-Utilidades-2.jpg" alt="Gôndolas de centro e parede"><div class="card-body"><h3 class="h3">Gôndolas</h3><p>Centro e parede, moduláveis para qualquer layout.</p></div></a>
-      <a href="produtos.html" class="card wide"><img src="assets/img/checkout-novoo.jpg" alt="Checkout de aço"><div class="card-body"><h3 class="h3">Checkouts</h3><p>Pontos de pagamento funcionais e resistentes.</p></div></a>
-      <a href="produtos.html" class="card wide"><img src="assets/img/Display-pdv-4.jpg" alt="Displays de ponto de venda"><div class="card-body"><h3 class="h3">Displays</h3><p>Destaque para produtos no ponto de venda.</p></div></a>
-      <a href="produtos.html" class="card wide"><img src="assets/img/Porta-Pallet-Estantes-Mezaninos-Divisorias-Aco-Moveis-1-1.jpg" alt="Porta-pallets e estantes"><div class="card-body"><h3 class="h3">Armazenagem</h3><p>Porta-pallets, estantes e mezaninos.</p></div></a>
-      <a href="produtos.html#steelwood" class="card wide"><span class="card-tag">Linha Premium</span><img src="assets/img/sw-2.jpg" alt="Linha Steel Wood"><div class="card-body"><h3 class="h3">Steel Wood</h3><p>Aço e madeira para lojas de alto padrão.</p></div></a>
-      <a href="produtos.html" class="card wide"><img src="assets/img/Aviamento-Aco-Moveis-10.jpg" alt="Expositores de aviamento"><div class="card-body"><h3 class="h3">Expositores</h3><p>Soluções sob medida para cada segmento.</p></div></a>
-    </div>
-  </div>
-</section>
-
-<section class="section section-dark" id="diferenciais" style="background-image:linear-gradient(rgba(23,23,23,.92),rgba(23,23,23,.92)),url('assets/img/tex-steel.jpg');background-size:cover;background-position:center">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <span class="eyebrow on-dark">Diferenciais</span>
-        <h2 class="h2">Por que o varejo escolhe a Açomóveis</h2>
-      </div>
-    </div>
-    <div class="feature-row" data-stagger>
-      <div class="feature"><div class="idx">01</div><h3 class="h3">100% Aço</h3><p>Estruturas fabricadas em aço de alta resistência, feitas para durar décadas de operação intensa.</p></div>
-      <div class="feature"><div class="idx">02</div><h3 class="h3">Fabricação Própria</h3><p>Projeto, produção, montagem e inspeção de qualidade dentro da nossa própria fábrica no Rio de Janeiro.</p></div>
-      <div class="feature"><div class="idx">03</div><h3 class="h3">Certificação ISO 9001</h3><p>Processos certificados que garantem padrão de qualidade em cada peça que sai da linha de produção.</p></div>
-    </div>
-    <div class="stats" style="margin-top:clamp(48px,6vw,90px)">
-      <div><div class="num" data-count="40" data-suffix="+">0</div><div class="lbl">Anos de experiência</div></div>
-      <div><div class="num" data-count="10" data-suffix="K+">0</div><div class="lbl">Clientes em todo o Brasil</div></div>
-      <div><div class="num" data-count="5" data-suffix="mil+">0</div><div class="lbl">Produtos disponíveis</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head" style="justify-content:center;text-align:center">
-      <div style="width:100%">
-        <span class="eyebrow" style="justify-content:center;display:inline-flex">Credibilidade</span>
-        <h2 class="h2" style="margin:14px auto 0;max-width:22ch">Reconhecida por quem exige qualidade</h2>
-      </div>
-    </div>
-    <div class="selos reveal">
-      <img src="assets/img/iso-9001.webp" alt="Certificação ISO 9001">
-      <img src="assets/img/bndes.webp" alt="Credenciada BNDES">
-      <img src="assets/img/proger.webp" alt="Credenciada PROGER">
-    </div>
-  </div>
-</section>
-
+<!-- CTA -->
 <section class="cta-band">
-  <div class="container">
+  <div class="container reveal">
     <h2 class="h1">Vai montar ou renovar sua loja?</h2>
-    <p>Fale com o nosso time comercial e receba um projeto sob medida para o seu segmento, com fabricação própria e entrega em todo o Brasil.</p>
-    <a href="contato.html" class="btn">Solicitar Orçamento Agora</a>
+    <p>Fale com o nosso time comercial e receba um projeto sob medida para o seu segmento, com fabrica&ccedil;&atilde;o pr&oacute;pria e entrega em todo o Brasil.</p>
+    <a href="contato.html" class="btn">Solicitar Or&ccedil;amento Agora</a>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-top">
-      <div>
-        <a href="index.html" class="logo"><img src="assets/img/logo-light.png" alt="Açomóveis"></a>
-        <p>Indústria de gôndolas, expositores e checkouts em aço. Os mais modernos expositores para você montar o seu comércio.</p>
+    <div class="footer-cat">
+      <div class="mini-shield"><span>A</span></div>
+      <div class="newsletter">
+        <strong>Receba nosso cat&aacute;logo</strong>
+        <form action="https://api.whatsapp.com/send?phone=5521983180196" method="get" target="_blank" rel="noopener">
+          <input type="email" placeholder="Seu melhor e-mail" aria-label="Seu e-mail">
+          <button type="submit" aria-label="Enviar">&rarr;</button>
+        </form>
       </div>
-      <div class="footer-col">
-        <strong>Navegação</strong>
-        <ul>
-          <li><a href="produtos.html">Produtos</a></li>
-          <li><a href="segmentos.html">Segmentos</a></li>
-          <li><a href="empresa.html">Empresa</a></li>
-          <li><a href="contato.html">Contato</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <strong>Atendimento</strong>
-        <ul>
-          <li><a href="https://api.whatsapp.com/send?phone=5521983180196" target="_blank" rel="noopener">(21) 98318-0196 Comercial</a></li>
-          <li><a href="tel:+552126710165">(21) 2671-0165 Central</a></li>
-          <li><a href="https://instagram.com/acomoveis" target="_blank" rel="noopener">@acomoveis</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <strong>Endereços</strong>
-        <span>Fábrica: Av. Monte Castelo, 128, Jardim Gramacho, Duque de Caxias, RJ, 25055-120</span>
-        <span style="margin-top:12px">SP: Rua Maria Curupaiti, 441, Salas 3001/3002, Torre G, Santana, São Paulo, SP</span>
+      <div class="footer-cols">
+        <div>
+          <strong>Produtos</strong>
+          <a href="produtos.html">G&ocirc;ndolas</a>
+          <a href="produtos.html#checkouts">Checkouts</a>
+          <a href="produtos.html#steelwood">Steel Wood</a>
+          <a href="produtos.html#armazenagem">Armazenagem</a>
+        </div>
+        <div>
+          <strong>Segmentos</strong>
+          <a href="segmentos.html">Supermercado</a>
+          <a href="segmentos.html">Pet Shop</a>
+          <a href="segmentos.html">Farm&aacute;cia</a>
+          <a href="segmentos.html">Home Center</a>
+        </div>
+        <div>
+          <strong>Empresa</strong>
+          <a href="empresa.html">Quem Somos</a>
+          <a href="empresa.html">Certifica&ccedil;&otilde;es</a>
+          <a href="contato.html">Or&ccedil;amento</a>
+        </div>
+        <div>
+          <strong>Contato</strong>
+          <a href="https://api.whatsapp.com/send?phone=5521983180196" target="_blank" rel="noopener">(21) 98318-0196</a>
+          <a href="tel:+552126710165">(21) 2671-0165</a>
+          <a href="https://instagram.com/acomoveis" target="_blank" rel="noopener">@acomoveis</a>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>Açomóveis. Todos os direitos reservados.</span>
-      <span>Indústria brasileira de expositores em aço.</span>
+      <span>F&aacute;brica: Av. Monte Castelo, 128, Jardim Gramacho, Duque de Caxias, RJ. SP: Rua Maria Curupaiti, 441, Santana, S&atilde;o Paulo.</span>
+      <span>A&ccedil;om&oacute;veis. Todos os direitos reservados.</span>
     </div>
   </div>
 </footer>
@@ -222,7 +236,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

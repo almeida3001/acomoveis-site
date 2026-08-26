@@ -34,3 +34,31 @@
 ## Imagens
 - 75 arquivos reais raspados em assets/img (comprimidos 1600px q85).
 - Geradas por IA: linha Steel Wood (3) + textura de aço (1).
+
+## Tokens do Brigade (extraídos do CSS compilado app.CTQ2rFXH.min.css em 26/08)
+
+### Cores exatas
+- Fundo creme: `#e7e6dd` (--color-3-1) — usado exato como --cream
+- Tinta/painéis: `#1a1a1a` (--color-2), variação `#252525` (--color-2-1)
+- Acento: `#b43c32` (--color-1) -> Açomóveis `#D02621`
+- Verde escuro `#323c32` e azul `#2d4650` (bg-4/bg-5, painéis) -> grafite `#232323`
+- Bege `#beb69e` (--color-3), cinza quente `#7d786e` (--color-3-2)
+- Hairlines: `#1a1a1a26` (15%) e `#1a1a1a33` (20%)
+
+### Tipografia
+- Headings: Special Gothic Condensed One 400; h1 3.25rem -> 4.75rem (passos 3.25/3.875/4.125/4.75); h2 1.75 -> 3.5rem; h3 1.5 -> 2.875rem
+- Body: Geist 400/600 (woff2 próprios); labels 11px semibold uppercase
+- Tracking: wider .05em, widest .1em (botões usam widest)
+
+### Componentes
+- Radius: lg .938rem (15px, cards/fotos), md .313rem, sm .188rem, botões pill (2147483647px)
+- Botões: 11px, semibold, uppercase, tracking .1em, padding ~17x25
+- Easing padrão: cubic-bezier(.4,0,.2,1) .2s; "ease-fancy": cubic-bezier(.165,.84,.44,1) (.2s hover, .8s entradas)
+- Header: --header-height 58.44px mobile / 75.05px desktop; --outer-padding 1.625rem / 2.5rem
+
+### Hero split (proporção real)
+- Painel texto: 35.777% / foto: 64.222% (classes w-[35.77...%] / w-[64.22...%])
+
+### Pattern topográfico
+- No Brigade é asset SVG próprio (pattern-swirls.CZQFBFTy.min.svg, aplicado via .bg-swirls como background-image repetido)
+- NÃO copiado: recriado pattern topográfico próprio equivalente em SVG inline (data URI --topo no style.css), traço 1px, opacidade baixa sobre painéis escuros

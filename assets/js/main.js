@@ -1,61 +1,94 @@
 (function () {
-  if (new URLSearchParams(location.search).has("noanim")) {
-    document.querySelectorAll(".reveal,.reveal-img").forEach(function (el) {
-      el.style.opacity = 1; el.style.transform = "none"; el.style.clipPath = "none";
-    });
-    document.querySelectorAll("[data-count]").forEach(function (el) {
-      el.textContent = el.getAttribute("data-count") + (el.getAttribute("data-suffix") || "");
-    });
-    var h = document.querySelector(".site-header");
-    window.addEventListener("scroll", function () {
-      h.classList.toggle("scrolled", window.scrollY > 40);
-    });
-    return;
-  }
-  gsap.registerPlugin(ScrollTrigger);
+  var noAnim = new URLSearchParams(location.search).has("noanim") || typeof gsap === "undefined";
 
-  // Lenis smooth scroll
-  var lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
-  lenis.on("scroll", ScrollTrigger.update);
-  gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
-  gsap.ticker.lagSmoothing(0);
-
-  // Header state
-  var header = document.querySelector(".site-header");
+  // ---------- Header: badge encolhe no scroll ----------
   function onScroll() {
-    if (window.scrollY > 40) header.classList.add("scrolled");
-    else header.classList.remove("scrolled");
+    document.body.classList.toggle("scrolled", window.scrollY > 60);
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  // Mobile nav
-  var burger = document.querySelector(".burger");
-  var mnav = document.querySelector(".mobile-nav");
-  if (burger && mnav) {
-    burger.addEventListener("click", function () {
-      mnav.classList.toggle("open");
-    });
-    mnav.querySelectorAll("a").forEach(function (a) {
-      a.addEventListener("click", function () { mnav.classList.remove("open"); });
-    });
+  // ---------- Meganav ----------
+  var toggle = document.querySelector(".menu-toggle");
+  var meganav = document.querySelector(".meganav");
+  var closeBtn = document.querySelector(".meganav .close");
+  function setMenu(open) {
+    if (!meganav) return;
+    meganav.classList.toggle("open", open);
+    if (toggle) toggle.classList.toggle("open", open);
+    document.body.style.overflow = open ? "hidden" : "";
   }
+  if (toggle) toggle.addEventListener("click", function () { setMenu(!meganav.classList.contains("open")); });
+  if (closeBtn) closeBtn.addEventListener("click", function () { setMenu(false); });
+  if (meganav) meganav.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function () { setMenu(false); });
+  });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") setMenu(false); });
 
-  // Hero intro
-  var heroEls = document.querySelectorAll(".hero .eyebrow, .hero .h-display, .hero .hero-ctas, .hero .hero-meta, .page-hero .eyebrow, .page-hero .h1, .page-hero .lead");
-  if (heroEls.length) {
-    gsap.from(heroEls, { y: 50, opacity: 0, duration: 1.1, stagger: 0.12, ease: "power3.out", delay: 0.15 });
-  }
-
-  // Hero parallax
-  document.querySelectorAll(".hero-media img, .sw-band .bg img").forEach(function (img) {
-    gsap.to(img, {
-      yPercent: 12, ease: "none",
-      scrollTrigger: { trigger: img.closest("section") || img.parentElement, start: "top top", end: "bottom top", scrub: true }
+  // ---------- Lista interativa de categorias ----------
+  var catItems = document.querySelectorAll(".cat-item");
+  var mainImg = document.getElementById("cat-img-a");
+  catItems.forEach(function (item) {
+    item.addEventListener("mouseenter", function () {
+      catItems.forEach(function (i) { i.classList.remove("active"); });
+      item.classList.add("active");
+      var src = item.getAttribute("data-img");
+      if (mainImg && src && mainImg.getAttribute("src") !== src) {
+        mainImg.style.opacity = 0;
+        setTimeout(function () {
+          mainImg.setAttribute("src", src);
+          mainImg.style.opacity = 1;
+        }, 180);
+      }
     });
   });
+  if (mainImg) mainImg.style.transition = "opacity .35s cubic-bezier(.165,.84,.44,1)";
 
-  // Generic reveals
+  // ---------- Contadores ----------
+  function animateCounters() {
+    document.querySelectorAll("[data-count]").forEach(function (el) {
+      var target = parseInt(el.getAttribute("data-count"), 10);
+      var suffix = el.getAttribute("data-suffix") || "";
+      if (noAnim) { el.textContent = target + suffix; return; }
+      var done = false;
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && !done) {
+            done = true;
+            var obj = { v: 0 };
+            gsap.to(obj, {
+              v: target, duration: 1.6, ease: "power2.out",
+              onUpdate: function () { el.textContent = Math.round(obj.v) + suffix; }
+            });
+            obs.disconnect();
+          }
+        });
+      }, { threshold: 0.4 });
+      obs.observe(el);
+    });
+  }
+  animateCounters();
+
+  if (noAnim) {
+    document.querySelectorAll(".reveal").forEach(function (el) {
+      el.style.opacity = 1; el.style.transform = "none";
+    });
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ---------- Hero intro ----------
+  var heroEls = document.querySelectorAll(".hero-panel .eyebrow, .hero-panel h1, .hero-panel p, .hero-panel .hero-ctas, .page-hero .eyebrow, .page-hero h1, .page-hero .lead");
+  if (heroEls.length) {
+    gsap.from(heroEls, { y: 40, opacity: 0, duration: 1, stagger: 0.1, ease: "power3.out", delay: 0.1 });
+  }
+  var heroPhoto = document.querySelector(".hero-photo img");
+  if (heroPhoto) {
+    gsap.from(heroPhoto, { scale: 1.08, duration: 1.6, ease: "power2.out" });
+  }
+
+  // ---------- Reveals on scroll ----------
   document.querySelectorAll(".reveal").forEach(function (el) {
     gsap.to(el, {
       opacity: 1, y: 0, duration: 1, ease: "power3.out",
@@ -63,51 +96,28 @@
     });
   });
 
-  // Image clip reveals
-  document.querySelectorAll(".reveal-img").forEach(function (el) {
-    gsap.to(el, {
-      clipPath: "inset(0% 0% 0% 0% round 14px)", duration: 1.2, ease: "power3.inOut",
-      scrollTrigger: { trigger: el, start: "top 82%" }
-    });
-  });
-
-  // Card stagger
+  // ---------- Stagger em grids ----------
   document.querySelectorAll("[data-stagger]").forEach(function (grid) {
     gsap.from(grid.children, {
-      y: 46, opacity: 0, duration: 0.9, stagger: 0.09, ease: "power3.out",
+      y: 40, opacity: 0, duration: 0.85, stagger: 0.08, ease: "power3.out",
       scrollTrigger: { trigger: grid, start: "top 84%" }
     });
   });
 
-  // Counters
-  document.querySelectorAll("[data-count]").forEach(function (el) {
-    var target = parseFloat(el.getAttribute("data-count"));
-    var suffix = el.getAttribute("data-suffix") || "";
-    var obj = { v: 0 };
-    gsap.to(obj, {
-      v: target, duration: 2, ease: "power2.out",
-      scrollTrigger: { trigger: el, start: "top 88%" },
-      onUpdate: function () { el.textContent = Math.round(obj.v) + suffix; }
-    });
-  });
-
-  // Marquee
-  document.querySelectorAll(".marquee-track").forEach(function (track) {
-    track.innerHTML += track.innerHTML;
-    gsap.to(track, { xPercent: -50, duration: 30, ease: "none", repeat: -1 });
-  });
-
-  // WhatsApp form redirect
-  var form = document.getElementById("orcamento-form");
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var nome = form.nome.value.trim();
-      var tel = form.telefone.value.trim();
-      var seg = form.segmento.value;
-      var msg = form.mensagem.value.trim();
-      var text = "Ola, gostaria de solicitar um orcamento.\nNome: " + nome + "\nTelefone: " + tel + "\nSegmento: " + seg + (msg ? "\nMensagem: " + msg : "");
-      window.open("https://api.whatsapp.com/send?phone=5521983180196&text=" + encodeURIComponent(text), "_blank");
+  // ---------- Fotos empilhadas entram ----------
+  var stack = document.querySelector(".stack-photos");
+  if (stack) {
+    gsap.from(stack.querySelectorAll("figure"), {
+      y: 60, opacity: 0, duration: 1, stagger: 0.15, ease: "power3.out",
+      scrollTrigger: { trigger: stack, start: "top 80%" }
     });
   }
+
+  // ---------- Banda escura: leve parallax na foto ----------
+  document.querySelectorAll(".band-dark .bg img").forEach(function (img) {
+    gsap.fromTo(img, { yPercent: -6 }, {
+      yPercent: 6, ease: "none",
+      scrollTrigger: { trigger: img.closest(".band-dark"), start: "top bottom", end: "bottom top", scrub: true }
+    });
+  });
 })();
